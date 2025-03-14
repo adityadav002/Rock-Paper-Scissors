@@ -1,0 +1,138 @@
+/** @format */
+
+body {
+  background: linear-gradient(90deg, #38306a 0%, #130d3d 100%);
+}
+
+.title {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 350%;
+  color: rgba(255, 255, 255, 0.61);
+  text-shadow: 2px 2px 4px rgb(98, 31, 98);
+  cursor: pointer;
+  display: block;
+}
+img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-left: 370px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.shakeplayer {
+  animation: shake 0.8s linear;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.shakecomputer {
+  animation: shake1 0.8s linear;
+}
+@keyframes shake1 {
+  0% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.score {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 200%;
+  color: rgba(255, 255, 255, 0.289);
+}
+button {
+  height: 50px;
+  width: 120px;
+  border-radius: 10px;
+  border: 5px solid white;
+  cursor: pointer;
+  background-color: rgb(98, 31, 98);
+  color: rgb(242, 202, 202);
+  font-size: medium;
+  transition: 0.5s;
+  margin-top: 70px;
+  margin-left: 280px;
+}
+button:hover {
+  background-color: #695bc686;
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    margin-top: 60px;
+  }
+
+  img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .score {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+
+  button {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+    margin-top: 40px;
+  }
+
+  img {
+    height: 130px;
+    width: 130px;
+  }
+
+  .score {
+    font-size: 1.2rem;
+  }
+
+  button {
+    width: 90%;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,90 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">ROCK PAPER SCISSORS</h1>
+    <img src="./images/rock.png" alt="player" class="playerimg" />
+    <img src="./images/rock.png" alt="computer" class="computerimg" />
+
+    <div class="score">
+      PLAYER : <span class="player_score">0</span> <span> / </span>
+      <span class="computer_score">0</span> : COMPUTER
+    </div>
+
+    <button class="rock" onclick="playGame('rock')">ROCK</button>
+    <button class="paper" onclick="playGame('paper')">PAPER</button>
+    <button class="scissors" onclick="playGame('scissors')">SCISSORS</button>
+
+    <script>
+      const playerImg = document.querySelector(".playerimg");
+      const computerImg = document.querySelector(".computerimg");
+      const playerScore = document.querySelector(".player_score");
+      const computerScore = document.querySelector(".computer_score");
+
+      const options = ["rock", "paper", "scissors"];
+
+      function getRandomChoice() {
+        return options[Math.floor(Math.random() * 3)];
+      }
+
+      function updateComputerChoice(choice) {
+        const imgMap = {
+          rock: "./images/rock.png",
+          paper: "./images/paper.png",
+          scissors: "./images/scissor.png",
+        };
+        computerImg.src = imgMap[choice];
+      }
+
+      function updateScores(playerChoice, computerChoice) {
+        let pPoints = parseInt(playerScore.innerHTML);
+        let cPoints = parseInt(computerScore.innerHTML);
+
+        if (playerChoice === computerChoice) return;
+
+        if (
+          (playerChoice === "rock" && computerChoice === "scissors") ||
+          (playerChoice === "paper" && computerChoice === "rock") ||
+          (playerChoice === "scissors" && computerChoice === "paper")
+        ) {
+          playerScore.innerHTML = pPoints + 1;
+        } else {
+          computerScore.innerHTML = cPoints + 1;
+        }
+      }
+
+      function shake(element) {
+        element.classList.add("shakeplayer");
+        setTimeout(() => {
+          element.classList.remove("shakeplayer");
+        }, 1000);
+      }
+
+      function playGame(playerChoice) {
+        const computerChoice = getRandomChoice();
+
+        console.log(playerChoice, computerChoice);
+
+        const imgMap = {
+          rock: "./images/rock.png",
+          paper: "./images/paper.png",
+          scissors: "./images/scissor.png",
+        };
+
+        playerImg.src = imgMap[playerChoice];
+
+        updateComputerChoice(computerChoice);
+        shake(playerImg);
+        shake(computerImg);
+        updateScores(playerChoice, computerChoice);
+      }
+    </script>
+  </body>
+</html>
